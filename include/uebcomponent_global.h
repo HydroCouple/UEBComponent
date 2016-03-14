@@ -1,0 +1,12 @@
+#ifndef UEBCOMPONENT_GLOBAL_H
+#define UEBCOMPONENT_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#ifdef UEBCOMPONENT_LIB
+# define UEBCOMPONENT_EXPORT Q_DECL_EXPORT
+#else
+# define UEBCOMPONENT_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // UEBCOMPONENT_GLOBAL_H

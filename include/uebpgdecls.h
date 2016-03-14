@@ -4,7 +4,7 @@
 #include <cstring>
 #include<sstream>
 #include <stdio.h>
-#include "mpi.h"
+#include <mpi.h>
 #include <netcdf.h>
 #include <cmath>
 #include <set>
