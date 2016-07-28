@@ -35,8 +35,30 @@ SOURCES += \
     src/core/uebdecls.cpp \
     src/core/uebinputs.cpp
 
-INCLUDEPATH += ./include \
-               /usr/local/include
+
+INCLUDEPATH += ./include 
+
+macx {
+
+      INCLUDEPATH +=  /usr/local/include
 
 LIBS += -L/usr/local/lib/ -lmpi.12 \
         -L/usr/local/lib/ -lnetcdf.7
+}
+
+CONFIG(debug, debug|release) {
+   DESTDIR = ./build/debug
+   OBJECTS_DIR = $$DESTDIR/.obj
+   MOC_DIR = $$DESTDIR/.moc
+   RCC_DIR = $$DESTDIR/.qrc
+   UI_DIR = $$DESTDIR/.ui
+}
+
+CONFIG(release, debug|release) {
+    DESTDIR = lib
+    RELEASE_EXTRAS = ./build/release 
+    OBJECTS_DIR = $$RELEASE_EXTRAS/.obj
+    MOC_DIR = $$RELEASE_EXTRAS/.moc
+    RCC_DIR = $$RELEASE_EXTRAS/.qrc
+    UI_DIR = $$RELEASE_EXTRAS/.ui
+}  
